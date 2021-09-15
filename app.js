@@ -5,11 +5,11 @@ const resetButton = document.querySelector('a');
 const missed = 0;
 
 const randomPhrase = [
-  'but february made me shiver',
-  'with every paper i delivered',
-  'bad news on the doorstep',
-  'i couldnt take one more step',
-  'i cant remember if i cried'
+  'But February made me shiver',
+  'With every paper I delivered',
+  'Bad news on the doorstep',
+  'I couldnt take one more step',
+  'I cant remember if I cried'
 ];
 
 
@@ -35,7 +35,7 @@ function addPhrasetoDisplay(phrasesArray) {
     const ul = document.getElementById('phrase');
     const li = document.createElement('li');
     ul.appendChild(li);
-      if (phrasesArray[i] != '') {
+      if (phrasesArray[i] != ' ') {
         li.className = 'letter'
       } else {
         li.className = 'space'
@@ -47,3 +47,25 @@ function addPhrasetoDisplay(phrasesArray) {
 // argument gets saved in phrases and run through the addPhrasetoDisplay function
 const phrases = getRandomPhrasesAsArray(randomPhrase);
 addPhrasetoDisplay(phrases);
+
+// sets button as the argument
+// default state is false/null
+// if button's text content matches the letter, class show is added
+function checkLetter (button){
+  const clicked = false;
+  const letter = document.querySelector('li');
+    for (let i = 0; i < letter.length; i++) {
+      if(button.target.textcontent === letter[i].textcontent) {
+        letter[i].classList.add('show');
+        clicked = true;
+      }
+    return clicked;
+  }
+}
+qwerty.addEventListener('click', (e) => {
+  let letterFound = checkLetter(event);
+  if (event.target === 'BUTTON') {
+    event.target.classList = 'chosen';
+    event.target.disabled = true;
+  }
+})
