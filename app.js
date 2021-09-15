@@ -20,22 +20,30 @@ resetButton.addEventListener('click', (e) => {
 });
 
 // selects one of the five strings within randomPhrase
+// splits the array into individual characters
 function getRandomPhrasesAsArray(phrasesArray) {
-  const phraseIndex = Math.floor(Math.random()*phrasesArray.length);
-  phrasesArray[phraseIndex];
-  return phrasesArray[phraseIndex];
-  // window.phrasesArray = [phrasesArray];
+  const random = phrasesArray[Math.floor(Math.random()*phrasesArray.length)];
+  let splitArray = random.split('');
+  return splitArray;
 }
-getRandomPhrasesAsArray(randomPhrase);
 
-function addPhrasetoDisplay(text) {
-  for (i = 0; i < randomPhrase[i].length; i++) {
+// uses the argument from getRandomPhrasesAsArray
+// creates a <li> for each element created by random.split('')
+// if ' ' = space, otherwise, letter
+function addPhrasetoDisplay(phrasesArray) {
+  for (i = 0; i < phrasesArray.length; i++) {
     const ul = document.getElementById('phrase');
     const li = document.createElement('li');
-    li.textContent = 'hi';
     ul.appendChild(li);
-
-
-  }
-
+      if (phrasesArray[i] != '') {
+        li.className = 'letter'
+      } else {
+        li.className = 'space'
+      }
+    }
 }
+
+// variable to create the split of a random array
+// argument gets saved in phrases and run through the addPhrasetoDisplay function
+const phrases = getRandomPhrasesAsArray(randomPhrase);
+addPhrasetoDisplay(phrases);
