@@ -20,11 +20,22 @@ resetButton.addEventListener('click', (e) => {
 });
 
 // selects one of the five strings within randomPhrase
-function getRandomPhrasesAsArray() {
-  const phraseLength = Math.floor(Math.random()*randomPhrase.length);
-  randomPhrase[phraseLength];
-  console.log(randomPhrase);
-};
-// function getRandomPhrasesAsArray(randomPhrase){
-// return phraseLength;
-// }
+function getRandomPhrasesAsArray(phrasesArray) {
+  const phraseIndex = Math.floor(Math.random()*phrasesArray.length);
+  phrasesArray[phraseIndex];
+  return phrasesArray[phraseIndex];
+  // window.phrasesArray = [phrasesArray];
+}
+getRandomPhrasesAsArray(randomPhrase);
+
+function addPhrasetoDisplay(text) {
+  for (i = 0; i < randomPhrase[i].length; i++) {
+    const ul = document.getElementById('phrase');
+    const li = document.createElement('li');
+    li.textContent = 'hi';
+    ul.appendChild(li);
+
+
+  }
+
+}
