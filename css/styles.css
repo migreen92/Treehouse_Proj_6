@@ -50,10 +50,13 @@ button {
   font-size: var(--font-size-medium);
   background-color: var(--color-keys-light);
   border-radius: 5px;
-  -webkit-transition: var(--transition);
-  -o-transition: var(--transition);
-  transition: var(--transition);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
+
+
+
 
 .main-container {
   display: flex;
@@ -90,6 +93,12 @@ button {
 
 .space {
   width: 15px;
+}
+
+.flip {
+  transform: rotateX(-360deg);
+  transform-origin: bottom;
+  transition: transform .5s ease-in-out;
 }
 
 .show {
